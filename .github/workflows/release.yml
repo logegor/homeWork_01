@@ -17,9 +17,6 @@ jobs:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install cmake libgtest-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-      - run: cd /usr/src/gtest
-      - run: sudo cmake CMakeLists.txt && sudo make
-      - run: sudo cp *.a /usr/lib && cd
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
